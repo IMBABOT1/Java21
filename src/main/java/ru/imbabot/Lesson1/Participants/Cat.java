@@ -13,11 +13,19 @@ public class Cat implements Participant{
 
     @Override
     public void run(int length) {
+        if (length >= maxRun){
         System.out.println("Cat: пробежал " + length);
+        }else {
+            System.out.println("Cat: не пробежал" + length);
+        }
     }
 
     @Override
     public void jump(int height) {
-        System.out.println("Cat: прыгнул " + height);
+        if (maxJump >= height) {
+            System.out.println("Cat: прыгнул " + height);
+        }else {
+            System.out.println("Cat не смог прыгнуть:" + height);
+        }
     }
 }

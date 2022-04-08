@@ -8,6 +8,6 @@ public class Wall implements Obstacle {
 
     @Override
     public void doIt(Participant participant) {
-        participant.jump(height);
+       participant.jump(height);
     }
 }

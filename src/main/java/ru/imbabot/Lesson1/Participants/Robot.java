@@ -10,13 +10,22 @@ public class Robot implements Participant{
         this.maxJump = maxJump;
     }
 
+
     @Override
     public void run(int length) {
-        System.out.println("Robot: пробежал " + length);
+        if (length >= maxRun){
+            System.out.println("Robot: пробежал " + length);
+        }else {
+            System.out.println("Robot: не пробежал" + length);
+        }
     }
 
     @Override
     public void jump(int height) {
-        System.out.println("Robot: пробежал " + height);
+        if (maxJump >= height) {
+            System.out.println("Robot: прыгнул " + height);
+        }else {
+            System.out.println("Robot не смогу прыгнуть:" + height);
+        }
     }
 }
