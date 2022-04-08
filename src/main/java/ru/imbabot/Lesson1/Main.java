@@ -8,32 +8,26 @@ import ru.imbabot.Lesson1.Participants.Human;
 import ru.imbabot.Lesson1.Participants.Participant;
 import ru.imbabot.Lesson1.Participants.Robot;
 
+import java.util.Calendar;
+import java.util.Random;
+
 public class Main {
 
     public static void main(String[] args) {
+        Participant[] participants = new Participant[3];
+        participants[0] = new Cat(20, 100, true);
+        participants[1] = new Human(1, 200, true);
+        participants[2] = new Robot(1, 500, true);
 
-
-        Obstacle[] obstacles = new Obstacle[4];
-        obstacles[0] = new Treadmill();
-        obstacles[1] = new Wall();
+        Obstacle[] obstacles = new Obstacle[3];
+        obstacles[0] = new Wall();
+        obstacles[1] = new Treadmill();
         obstacles[2] = new Wall();
-        obstacles[3] = new Wall();
 
-
-        Participant[] participants = new Participant[1];
-        participants[0] = new Robot(123456, 2, true);
-
-
-
-
-        for(Obstacle o : obstacles){
+        for (Obstacle o : obstacles){
             for (Participant p : participants){
                 o.doIt(p);
             }
         }
-
-
-
-
     }
 }

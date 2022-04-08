@@ -2,34 +2,35 @@ package ru.imbabot.Lesson1.Participants;
 
 public class Cat implements Participant{
 
-    private int maxRun;
     private int maxJump;
-    public boolean isActive;
+    private int maxRun;
+    private boolean action;
 
-    public Cat(int maxRun, int maxJump, boolean isActive){
-        this.maxRun = maxRun;
+
+    public Cat(int maxJump, int maxRun, boolean action) {
         this.maxJump = maxJump;
-        this.isActive = true;
+        this.maxRun = maxRun;
+        this.action = action;
     }
 
 
     @Override
-    public void run(int length) {
-        if (length >= maxRun && isActive == true){
-        System.out.println("Cat: пробежал " + length);
-        }else {
-            System.out.println("Cat: не пробежал" + length + " " + "Дальше не идет");
-            isActive = false;
+    public void jump(int height) {
+        if (height <= maxJump && action == true){
+            System.out.println("Cat jump: " + maxJump);
+        }else if (height > maxJump && action == true){
+            action = false;
+            System.out.println("Cat can't jump " + height + " remove from distance");
         }
     }
 
     @Override
-    public void jump(int height) {
-        if (maxJump >= height && isActive==true) {
-            System.out.println("Cat: прыгнул " + height);
-        }else {
-            System.out.println("Cat не смог прыгнуть:" + height + " " + "Дальше не идет");
-            isActive = false;
+    public void run(int distance) {
+        if (distance <= maxRun && action == true){
+            System.out.println("Cat run: " + maxRun);
+        }else if (distance > maxRun && action == true){
+            action = false;
+            System.out.println("Cat can't run " + distance + " remove from distance");
         }
     }
 }

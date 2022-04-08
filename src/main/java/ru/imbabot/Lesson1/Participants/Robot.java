@@ -2,34 +2,35 @@ package ru.imbabot.Lesson1.Participants;
 
 public class Robot implements Participant{
 
-    private int maxRun;
     private int maxJump;
-    public boolean isActive;
+    private int maxRun;
+    private boolean action;
 
-    public Robot(int maxRun, int maxJump, boolean isActive){
-        this.maxRun = maxRun;
+
+    public Robot(int maxJump, int maxRun, boolean action) {
         this.maxJump = maxJump;
-        this.isActive = true;
+        this.maxRun = maxRun;
+        this.action = action;
     }
 
 
     @Override
-    public void run(int length) {
-        if (length >= maxRun && isActive == true){
-            System.out.println("Robot: пробежал " + length);
-        }else if (length < maxRun) {
-            isActive = false;
-            System.out.println("Robot: не пробежал" + length + " " + "Дальше не идет");
+    public void jump(int height) {
+        if (height <= maxJump && action == true){
+            System.out.println("Robot jump: " + maxJump);
+        }else if (height > maxJump && action == true){
+            action = false;
+            System.out.println("Robot can't jump " + height + " remove from distance");
         }
     }
 
     @Override
-    public void jump(int height) {
-        if (maxJump >= height && isActive == true) {
-            System.out.println("Robot: прыгнул " + height);
-        } else if (height < maxJump) {
-            isActive = false;
-            System.out.println("Robot не смог прыгнуть:" + height + " " + "Дальше не идет");
+    public void run(int distance) {
+        if (distance <= maxRun && action == true){
+            System.out.println("Robot run: " + maxRun);
+        }else if (distance > maxRun && action == true){
+            action = false;
+            System.out.println("Robot can't run " + distance + " remove from distance");
         }
     }
 }
