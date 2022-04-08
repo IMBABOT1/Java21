@@ -13,13 +13,15 @@ public class Main {
     public static void main(String[] args) {
 
 
-        Obstacle[] obstacles = new Obstacle[2];
+        Obstacle[] obstacles = new Obstacle[4];
         obstacles[0] = new Treadmill();
         obstacles[1] = new Wall();
+        obstacles[2] = new Wall();
+        obstacles[3] = new Wall();
 
 
         Participant[] participants = new Participant[1];
-        participants[0] = new Human(2, 2, true);
+        participants[0] = new Robot(123456, 2, true);
 
 
 

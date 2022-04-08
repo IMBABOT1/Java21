@@ -4,7 +4,7 @@ import ru.imbabot.Lesson1.Participants.Participant;
 
 public class Treadmill implements Obstacle {
 
-    private int distance = 1000;
+    private int distance = 1;
 
     @Override
     public void doIt(Participant participant) {

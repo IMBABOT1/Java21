@@ -15,25 +15,21 @@ public class Robot implements Participant{
 
     @Override
     public void run(int length) {
-        if (length >= maxRun && isActive){
+        if (length >= maxRun && isActive == true){
             System.out.println("Robot: пробежал " + length);
-        }else {
-            System.out.println("Robot: не пробежал" + length);
-        }
-        if (isActive == false){
-            System.out.println("Сломался, дальше не бежит");
+        }else if (length < maxRun) {
+            isActive = false;
+            System.out.println("Robot: не пробежал" + length + " " + "Дальше не идет");
         }
     }
 
     @Override
     public void jump(int height) {
-        if (maxJump >= height && isActive) {
+        if (maxJump >= height && isActive == true) {
             System.out.println("Robot: прыгнул " + height);
-        }else {
-            System.out.println("Robot не смогу прыгнуть:" + height);
-        }
-        if (isActive == false){
-            System.out.println("Сломался, дальше не бежит");
+        } else if (height < maxJump) {
+            isActive = false;
+            System.out.println("Robot не смог прыгнуть:" + height + " " + "Дальше не идет");
         }
     }
 }
