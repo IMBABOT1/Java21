@@ -2,12 +2,12 @@ package ru.imbabot.Lesson1.Obstacle;
 
 import ru.imbabot.Lesson1.Participants.Participant;
 
-public class Wall implements Obstacle {
+public class Treadmill implements Obstacle {
 
-    private int height = 200;
+    private int distance = 1000;
 
     @Override
     public void doIt(Participant participant) {
-       participant.jump(height);
+        participant.run(distance);
     }
 }
