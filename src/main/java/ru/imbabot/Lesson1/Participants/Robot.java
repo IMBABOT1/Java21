@@ -1,30 +1,22 @@
 package ru.imbabot.Lesson1.Participants;
 
-public class Robot implements Participant {
-    private int maxDistance;
-    public int maxHeight;
+public class Robot implements Participant{
 
-    public Robot(int runDistance, int runHeight){
-        this.maxDistance = runDistance;
-        this.maxHeight = runHeight;
+    private int maxRun;
+    private int maxJump;
+
+    public Robot(int maxRun, int maxJump){
+        this.maxRun = maxRun;
+        this.maxJump = maxJump;
     }
 
     @Override
-    public boolean run(int distance) {
-        if (distance > maxDistance){
-            System.out.println("Robot не пробежал");
-            return false;
-        }
-        return true;
+    public void run(int length) {
+        System.out.println("Robot: пробежал " + length);
     }
 
     @Override
-    public boolean jump(int height) {
-        if (height > maxHeight){
-            System.out.println("Robot не проплыл");
-            return false;
-        }
-
-        return false;
+    public void jump(int height) {
+        System.out.println("Robot: пробежал " + height);
     }
 }
