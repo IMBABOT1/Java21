@@ -20,7 +20,6 @@ public class Main {
             for (int j = 0; j < arr[i].length; j++) {
                arr[i][j] = "1";
 
-
                if (!arr[i][j].matches("[0-9]+")){
                    throw new MyArrayDataException(i,j);
                }
@@ -32,7 +31,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        String[][] arr = new String[0][0];
+        String[][] arr = new String[4][4];
         try {
             System.out.println(exceptionMethod(arr));
         } catch (MyArrayDataException e) {
