@@ -1,5 +1,8 @@
 package ru.imbabot.Lesson3;
 
+import ru.imbabot.Lesson3.Phonebook.Person;
+import ru.imbabot.Lesson3.Phonebook.Phonebook;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,6 +28,13 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        wordUnique(words);
+        Phonebook phonebook = new Phonebook();
+        phonebook.add(new Person("asd", 8800000));
+        phonebook.add(new Person("asd", 8800002));
+        phonebook.add(new Person("asd", 8800001));
+        phonebook.add(new Person("asd1", 8800001));
+
+        System.out.println(phonebook.get("asd1"));
+
     }
 }
