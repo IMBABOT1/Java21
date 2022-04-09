@@ -19,7 +19,7 @@ public class Main {
         int sum = 0;
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[i].length; j++) {
-                if (!arr[i][j].matches("[0-9]+")) {
+                if (arr[i][j].matches("[0-9]+")) {
                     throw new MyArrayDataException(arr, Integer.parseInt(arr[i][j]));
                 }
                 sum += Integer.parseInt(arr[i][j]);
@@ -43,5 +43,13 @@ public class Main {
         }
 
         System.out.println(Arrays.deepToString(arr));
+
+        try {
+            System.out.println(exceptionMethod(arr));
+        } catch (MyArrayDataException e) {
+            e.printStackTrace();
+        } catch (MyArraySizeException e) {
+            e.printStackTrace();
+        }
     }
 }

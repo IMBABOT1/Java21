@@ -1,6 +1,6 @@
 package ru.imbabot.Lesson2;
 
-public class MyArrayDataException extends RuntimeException{
+public class MyArrayDataException extends Exception{
 
     private int data;
 
