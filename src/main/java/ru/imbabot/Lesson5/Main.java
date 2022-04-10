@@ -4,8 +4,7 @@ public class Main {
     private static final int size = 10000000;
     private static final int h = size / 2;
 
-
-    private static void method(){
+    private static void method1(){
         float[] arr = new float[size];
 
         for (int i = 0; i < arr.length; i++) {
@@ -18,20 +17,18 @@ public class Main {
             arr[i] = (float)(arr[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));
         }
 
-        long time = System.currentTimeMillis();
+        System.out.println(System.currentTimeMillis() - a);
 
-
-
-        float size = 0;
+        float res = 0;
         for (int i = 0; i <arr.length ; i++) {
-            size += arr[i];
+            res += arr[i];
         }
 
-        System.out.println(size);
-
+        System.out.println(res);
     }
 
-    private static void method1(){
+
+    private static void method2(){
         float[] arr = new float[size];
 
         for (int i = 0; i < arr.length; i++) {
@@ -41,40 +38,38 @@ public class Main {
         float[] first = new float[h];
         float[] second = new float[size];
 
+
         long a = System.currentTimeMillis();
 
         System.arraycopy(arr, 0, first, 0, h);
-        System.arraycopy(arr, h, second, 0, h);
+        System.arraycopy(arr, h, second, h, h);
 
-        Thread thread = new Thread(new MyThread(first, 0));
-        Thread thread1 = new Thread(new MyThread(second, h));
-        thread.start();
-        thread1.start();
+        Thread t = new Thread(new MyThread(first, 0));
+        Thread t2 = new Thread(new MyThread(second, h));
+        t.start();
+        t2.start();
+
         try {
-            thread.join();
-            thread1.join();
+            t.join();
+            t2.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
         System.arraycopy(first, 0, arr, 0, h);
-        System.arraycopy(second, 0, arr, h, h);
+        System.arraycopy(second, h, arr, h, h);
 
-        long time = System.currentTimeMillis();
-
-
-
-        float size = 0;
+        float res = 0;
         for (int i = 0; i <arr.length ; i++) {
-            size += arr[i];
+            res += arr[i];
         }
 
-        System.out.println(size);
+        System.out.println(res);
+
     }
 
-
     public static void main(String[] args) {
-        method();
         method1();
+        method2();
     }
 }
